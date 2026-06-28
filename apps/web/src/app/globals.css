@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f3f6f8;
+  --surface: #ffffff;
+  --surface-muted: #eef3f8;
+  --text-primary: #191919;
+  --text-secondary: #666666;
+  --border: #d0d7de;
+  --primary: #0a66c2;
+  --primary-hover: #004182;
+  --accent: #378fe9;
+  --positive: #057642;
+  --warning: #915907;
+  --danger: #cc1016;
+  --foreground: #191919;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+.focus-ring {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.focus-ring:focus-visible {
+  outline-color: var(--primary);
+}
+
+.route-board {
+  background:
+    linear-gradient(90deg, rgba(208, 215, 222, 0.55) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(208, 215, 222, 0.55) 1px, transparent 1px),
+    linear-gradient(135deg, #fff 0%, #eef3f8 100%);
+  background-size: 32px 32px, 32px 32px, auto;
+}

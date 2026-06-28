@@ -1,0 +1,50 @@
+[
+  {
+    "id": "seeded-review-1",
+    "locationName": "Vicky Sunset Pointe",
+    "rating": 5,
+    "comment": "Absolutely stunning place for sunsets! Much quieter than the main park entrance. Perfect for families!",
+    "username": "Vicky",
+    "timestamp": "06/24/2026, 08:32 PM"
+  },
+  {
+    "id": "seeded-review-2",
+    "locationName": "Vicky Sunset Pointe",
+    "rating": 5,
+    "comment": "Discovered this pin from Vicky's recommendation! Incredible view of Grapevine Lake. Great photo spot.",
+    "username": "David K.",
+    "timestamp": "06/25/2026, 06:15 PM"
+  },
+  {
+    "id": "seeded-review-3",
+    "locationName": "Vicky Sunset Pointe",
+    "rating": 4,
+    "comment": "Great spot to sit and watch the sailboats. Kids loved playing near the water. Bring bug spray!",
+    "username": "Sarah M.",
+    "timestamp": "06/27/2026, 05:40 PM"
+  },
+  {
+    "id": "seeded-review-4",
+    "locationName": "Lands End Secret Labyrinth",
+    "rating": 5,
+    "comment": "Breathtaking views of the Golden Gate Bridge and a very peaceful labyrinth walk. Best kept SF secret.",
+    "username": "Alex P.",
+    "timestamp": "06/10/2026, 10:15 AM"
+  },
+  {
+    "id": "seeded-review-5",
+    "locationName": "Lands End Secret Labyrinth",
+    "rating": 4,
+    "comment": "A bit windy, but absolutely worth the walk down. The stones are beautifully laid out.",
+    "username": "Elena S.",
+    "timestamp": "06/15/2026, 02:30 PM"
+  },
+  {
+    "id": "seeded-review-6",
+    "locationName": "Billy Goat Hill Swing",
+    "rating": 5,
+    "comment": "The famous tree swing is back! You get a full panoramic view of the SF skyline. Pure magic.",
+    "username": "Michael T.",
+    "timestamp": "05/20/2026, 04:45 PM"
+  }
+]

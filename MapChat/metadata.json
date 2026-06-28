@@ -1,0 +1,6 @@
+{
+  "name": "Where2Go",
+  "description": "Where2Go is an interactive local discovery decision engine and planning assistant. It helps households and groups choose where to go by combining maps, events, real-time weather, travel limits, budget constraints, and kid-friendliness into ready-to-share itineraries.",
+  "requestFramePermissions": ["geolocation", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

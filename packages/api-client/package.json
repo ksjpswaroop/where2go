@@ -1,0 +1,24 @@
+{
+  "name": "@where2go/api-client",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./planning": "./src/planning.ts",
+    "./chat": "./src/chat.ts",
+    "./hiddenGems": "./src/hiddenGems.ts",
+    "./profile": "./src/profile.ts",
+    "./safety": "./src/safety.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@where2go/schemas": "workspace:*",
+    "@where2go/safety-api-client": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "~5.9.3"
+  }
+}

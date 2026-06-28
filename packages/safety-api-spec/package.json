@@ -1,0 +1,13 @@
+{
+  "name": "@where2go/safety-api-spec",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "codegen": "orval --config ./orval.config.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "orval": "^8.9.1",
+    "typescript": "~5.9.3"
+  }
+}

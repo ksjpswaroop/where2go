@@ -1,0 +1,855 @@
+openapi: 3.1.0
+info:
+  # Do not change the title, if the title changes, the import paths will be broken
+  title: Api
+  version: 0.1.0
+  description: SafeTrip AI API
+servers:
+  - url: /api
+    description: Base API path
+tags:
+  - name: health
+    description: Health operations
+  - name: profile
+    description: User profile and settings
+  - name: contacts
+    description: Emergency contacts
+  - name: trips
+    description: Trips
+  - name: timers
+    description: Safety timers
+  - name: checkins
+    description: Smart check-ins
+  - name: battery
+    description: Battery safety events
+  - name: scanner
+    description: AI hotel safety scanner
+  - name: dashboard
+    description: Dashboard aggregates
+paths:
+  /healthz:
+    get:
+      operationId: healthCheck
+      tags: [health]
+      summary: Health check
+      responses:
+        "200":
+          description: Healthy
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthStatus"
+
+  /me:
+    get:
+      operationId: getMe
+      tags: [profile]
+      summary: Get the current user's profile and settings
+      responses:
+        "200":
+          description: Current user
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserProfile"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+    patch:
+      operationId: updateMe
+      tags: [profile]
+      summary: Update the current user's profile and settings
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateUserProfile"
+      responses:
+        "200":
+          description: Updated user
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserProfile"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+
+  /contacts:
+    get:
+      operationId: listContacts
+      tags: [contacts]
+      summary: List emergency contacts
+      responses:
+        "200":
+          description: Contacts
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/EmergencyContact"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+    post:
+      operationId: createContact
+      tags: [contacts]
+      summary: Add an emergency contact
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateEmergencyContact"
+      responses:
+        "201":
+          description: Created contact
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EmergencyContact"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+  /contacts/{id}:
+    patch:
+      operationId: updateContact
+      tags: [contacts]
+      summary: Update an emergency contact
+      parameters:
+        - $ref: "#/components/parameters/IdParam"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateEmergencyContact"
+      responses:
+        "200":
+          description: Updated contact
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EmergencyContact"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+    delete:
+      operationId: deleteContact
+      tags: [contacts]
+      summary: Delete an emergency contact
+      parameters:
+        - $ref: "#/components/parameters/IdParam"
+      responses:
+        "204":
+          description: Deleted
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+
+  /trips:
+    get:
+      operationId: listTrips
+      tags: [trips]
+      summary: List trips
+      responses:
+        "200":
+          description: Trips
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Trip"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+    post:
+      operationId: createTrip
+      tags: [trips]
+      summary: Create a trip
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateTrip"
+      responses:
+        "201":
+          description: Created trip
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Trip"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+  /trips/{id}:
+    patch:
+      operationId: updateTrip
+      tags: [trips]
+      summary: Update a trip
+      parameters:
+        - $ref: "#/components/parameters/IdParam"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateTrip"
+      responses:
+        "200":
+          description: Updated trip
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Trip"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+
+  /safety-timers:
+    get:
+      operationId: listSafetyTimers
+      tags: [timers]
+      summary: List safety timers (most recent first)
+      responses:
+        "200":
+          description: Safety timers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/SafetyTimer"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+    post:
+      operationId: createSafetyTimer
+      tags: [timers]
+      summary: Start a safety timer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateSafetyTimer"
+      responses:
+        "201":
+          description: Created safety timer
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SafetyTimer"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+  /safety-timers/{id}:
+    patch:
+      operationId: updateSafetyTimer
+      tags: [timers]
+      summary: Update a safety timer (extend, stop, complete, or expire)
+      parameters:
+        - $ref: "#/components/parameters/IdParam"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateSafetyTimer"
+      responses:
+        "200":
+          description: Updated safety timer
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SafetyTimer"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "404":
+          $ref: "#/components/responses/NotFound"
+
+  /check-ins:
+    get:
+      operationId: listCheckIns
+      tags: [checkins]
+      summary: List check-ins (most recent first)
+      responses:
+        "200":
+          description: Check-ins
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CheckIn"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+    post:
+      operationId: createCheckIn
+      tags: [checkins]
+      summary: Record a check-in
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateCheckIn"
+      responses:
+        "201":
+          description: Created check-in
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CheckIn"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+
+  /battery-events:
+    post:
+      operationId: createBatteryEvent
+      tags: [battery]
+      summary: Record a battery event with optional location
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateBatteryEvent"
+      responses:
+        "201":
+          description: Created battery event
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BatteryEvent"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+  /battery-events/latest:
+    get:
+      operationId: getLatestBatteryEvent
+      tags: [battery]
+      summary: Get the most recent battery event
+      responses:
+        "200":
+          description: Latest battery event (null if none)
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/BatteryEvent"
+                  - type: "null"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+
+  /hotel-scans:
+    get:
+      operationId: listHotelScans
+      tags: [scanner]
+      summary: List previous hotel scans (most recent first)
+      responses:
+        "200":
+          description: Hotel scans
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/HotelScan"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+    post:
+      operationId: createHotelScan
+      tags: [scanner]
+      summary: Run the AI hotel safety scanner for a hotel name or link
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateHotelScan"
+      responses:
+        "201":
+          description: Scan result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HotelScan"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+        "502":
+          $ref: "#/components/responses/UpstreamError"
+
+  /dashboard/summary:
+    get:
+      operationId: getDashboardSummary
+      tags: [dashboard]
+      summary: Aggregated home-screen summary
+      responses:
+        "200":
+          description: Dashboard summary
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DashboardSummary"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+
+components:
+  parameters:
+    IdParam:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+  responses:
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    NotFound:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+    UpstreamError:
+      description: Upstream AI service error
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/Error"
+  schemas:
+    HealthStatus:
+      type: object
+      properties:
+        status:
+          type: string
+      required:
+        - status
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+      required:
+        - error
+
+    UserProfile:
+      type: object
+      properties:
+        id:
+          type: string
+        email:
+          type: string
+          nullable: true
+        displayName:
+          type: string
+          nullable: true
+        productMode:
+          type: string
+          enum: [family_day, solo_travel]
+        subscriptionTier:
+          type: string
+          enum: [free, plus, pro]
+        batteryThreshold:
+          type: integer
+        lowBatterySos:
+          type: boolean
+        shareLocationDefault:
+          type: boolean
+        createdAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - productMode
+        - subscriptionTier
+        - batteryThreshold
+        - lowBatterySos
+        - shareLocationDefault
+        - createdAt
+    UpdateUserProfile:
+      type: object
+      properties:
+        displayName:
+          type: string
+        productMode:
+          type: string
+          enum: [family_day, solo_travel]
+        batteryThreshold:
+          type: integer
+          minimum: 1
+          maximum: 100
+        lowBatterySos:
+          type: boolean
+        shareLocationDefault:
+          type: boolean
+
+    EmergencyContact:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        relation:
+          type: string
+          nullable: true
+        phone:
+          type: string
+        isPrimary:
+          type: boolean
+        createdAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - name
+        - phone
+        - isPrimary
+        - createdAt
+    CreateEmergencyContact:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+        relation:
+          type: string
+        phone:
+          type: string
+          minLength: 1
+        isPrimary:
+          type: boolean
+      required:
+        - name
+        - phone
+    UpdateEmergencyContact:
+      type: object
+      properties:
+        name:
+          type: string
+          minLength: 1
+        relation:
+          type: string
+        phone:
+          type: string
+          minLength: 1
+        isPrimary:
+          type: boolean
+
+    Trip:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        destination:
+          type: string
+          nullable: true
+        status:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - title
+        - status
+        - createdAt
+    CreateTrip:
+      type: object
+      properties:
+        title:
+          type: string
+          minLength: 1
+        destination:
+          type: string
+        status:
+          type: string
+          enum: [active, ended]
+      required:
+        - title
+    UpdateTrip:
+      type: object
+      properties:
+        title:
+          type: string
+          minLength: 1
+        destination:
+          type: string
+        status:
+          type: string
+          enum: [active, ended]
+
+    SafetyTimer:
+      type: object
+      properties:
+        id:
+          type: integer
+        label:
+          type: string
+          nullable: true
+        expiresAt:
+          type: string
+          format: date-time
+        status:
+          type: string
+        shareLocation:
+          type: boolean
+        notifyContacts:
+          type: boolean
+        escalatedAt:
+          type: string
+          format: date-time
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - expiresAt
+        - status
+        - shareLocation
+        - notifyContacts
+        - createdAt
+    CreateSafetyTimer:
+      type: object
+      properties:
+        label:
+          type: string
+        expiresAt:
+          type: string
+          format: date-time
+        shareLocation:
+          type: boolean
+        notifyContacts:
+          type: boolean
+      required:
+        - expiresAt
+    UpdateSafetyTimer:
+      type: object
+      properties:
+        label:
+          type: string
+        expiresAt:
+          type: string
+          format: date-time
+        status:
+          type: string
+          enum: [active, completed, stopped, expired]
+        shareLocation:
+          type: boolean
+        notifyContacts:
+          type: boolean
+
+    CheckIn:
+      type: object
+      properties:
+        id:
+          type: integer
+        type:
+          type: string
+        label:
+          type: string
+          nullable: true
+        latitude:
+          type: number
+          nullable: true
+        longitude:
+          type: number
+          nullable: true
+        locationName:
+          type: string
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - type
+        - createdAt
+    CreateCheckIn:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [landed, reached_hotel, leaving_hotel, custom]
+        label:
+          type: string
+        latitude:
+          type: number
+        longitude:
+          type: number
+        locationName:
+          type: string
+      required:
+        - type
+
+    BatteryEvent:
+      type: object
+      properties:
+        id:
+          type: integer
+        level:
+          type: integer
+        isCharging:
+          type: boolean
+        latitude:
+          type: number
+          nullable: true
+        longitude:
+          type: number
+          nullable: true
+        locationName:
+          type: string
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - level
+        - isCharging
+        - createdAt
+    CreateBatteryEvent:
+      type: object
+      properties:
+        level:
+          type: integer
+          minimum: 0
+          maximum: 100
+        isCharging:
+          type: boolean
+        latitude:
+          type: number
+        longitude:
+          type: number
+        locationName:
+          type: string
+      required:
+        - level
+
+    HotelScan:
+      type: object
+      properties:
+        id:
+          type: integer
+        query:
+          type: string
+        hotelName:
+          type: string
+          nullable: true
+        overallScore:
+          type: integer
+        neighborhoodScore:
+          type: integer
+        soloFemaleScore:
+          type: integer
+        deadboltMentioned:
+          type: boolean
+        summary:
+          type: string
+        tips:
+          type: array
+          nullable: true
+          items:
+            type: string
+        createdAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - query
+        - overallScore
+        - neighborhoodScore
+        - soloFemaleScore
+        - deadboltMentioned
+        - summary
+        - createdAt
+    CreateHotelScan:
+      type: object
+      properties:
+        query:
+          type: string
+          minLength: 2
+      required:
+        - query
+
+    DashboardSummary:
+      type: object
+      properties:
+        activeTimer:
+          oneOf:
+            - $ref: "#/components/schemas/SafetyTimer"
+            - type: "null"
+        latestBattery:
+          oneOf:
+            - $ref: "#/components/schemas/BatteryEvent"
+            - type: "null"
+        primaryContact:
+          oneOf:
+            - $ref: "#/components/schemas/EmergencyContact"
+            - type: "null"
+        lastCheckIn:
+          oneOf:
+            - $ref: "#/components/schemas/CheckIn"
+            - type: "null"
+        activeTrip:
+          oneOf:
+            - $ref: "#/components/schemas/Trip"
+            - type: "null"
+        contactsCount:
+          type: integer
+        escalation:
+          oneOf:
+            - $ref: "#/components/schemas/EscalationSummary"
+            - type: "null"
+      required:
+        - contactsCount
+
+    EscalationDelivery:
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: true
+        status:
+          type: string
+          enum: [pending, sent, failed]
+        attempts:
+          type: integer
+      required:
+        - status
+        - attempts
+    EscalationSummary:
+      type: object
+      properties:
+        timerId:
+          type: integer
+        escalatedAt:
+          type: string
+          format: date-time
+        total:
+          type: integer
+        sent:
+          type: integer
+        failed:
+          type: integer
+        pending:
+          type: integer
+        contacts:
+          type: array
+          items:
+            $ref: "#/components/schemas/EscalationDelivery"
+      required:
+        - timerId
+        - escalatedAt
+        - total
+        - sent
+        - failed
+        - pending
+        - contacts

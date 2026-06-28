@@ -1,0 +1,42 @@
+{
+  "name": "where2go",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@11.9.0",
+  "scripts": {
+    "dev": "turbo dev",
+    "dev:web": "pnpm --filter @where2go/web dev",
+    "dev:mobile": "pnpm --filter @where2go/mobile dev",
+    "dev:safety-api": "pnpm --filter @where2go/safety-api dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "typecheck": "turbo typecheck",
+    "safety:codegen": "pnpm --filter @where2go/safety-api-spec codegen",
+    "safety:db:push": "pnpm --filter @where2go/safety-db push",
+    "milestone0:check": "node scripts/verify-milestone-0.mjs --url=http://127.0.0.1:3000",
+    "milestone0:check:local": "node scripts/verify-milestone-0.mjs",
+    "milestone0:check:vercel": "node scripts/verify-milestone-0.mjs --url=http://127.0.0.1:3000 --vercel",
+    "milestone0:smoke": "node scripts/smoke-providers.mjs",
+    "mobile:check": "node scripts/verify-mobile-api.mjs",
+    "safety:deploy": "bash scripts/deploy-safety-api.sh",
+    "providers:smoke": "node scripts/smoke-providers.mjs",
+    "vercel:whoami": "node scripts/check-vercel-auth.mjs",
+    "vercel:whoami:cli": "pnpm dlx vercel@latest whoami",
+    "vercel:login": "pnpm dlx vercel@latest login",
+    "vercel:bootstrap": "node scripts/bootstrap-vercel-project.mjs",
+    "vercel:bootstrap:apply": "node scripts/bootstrap-vercel-project.mjs --apply",
+    "vercel:link": "pnpm dlx vercel@latest link --scope scholarit",
+    "vercel:link:repo": "pnpm dlx vercel@latest link --repo --scope scholarit",
+    "vercel:settings:check": "node scripts/configure-vercel-project.mjs",
+    "vercel:settings:apply": "node scripts/configure-vercel-project.mjs --apply",
+    "vercel:env:ls": "pnpm dlx vercel@latest env ls --scope scholarit",
+    "vercel:env:pull": "pnpm dlx vercel@latest env pull .env.local --yes --scope scholarit",
+    "vercel:env:sync": "node scripts/sync-vercel-env.mjs",
+    "vercel:env:sync:apply": "node scripts/sync-vercel-env.mjs --apply",
+    "vercel:deploy": "pnpm dlx vercel@latest --scope scholarit"
+  },
+  "devDependencies": {
+    "turbo": "^2.7.2",
+    "typescript": "^5.9.3"
+  }
+}

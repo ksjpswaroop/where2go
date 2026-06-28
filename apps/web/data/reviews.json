@@ -1,0 +1,682 @@
+[
+  {
+    "id": "7ec88479-134b-449a-85fe-75d1a1753e43",
+    "locationName": "Scenic Wildflower Overlook",
+    "rating": 5,
+    "comment": "Quiet and pristine. A must-visit near this region.",
+    "username": "ExploreEverywhere",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "9336cd8b-16a3-496c-a65e-da1b66d41c6f",
+    "locationName": "Whispering Waters Creek Trail",
+    "rating": 5,
+    "comment": "Quiet and pristine. A must-visit near this region.",
+    "username": "ExploreEverywhere",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "dd8f1067-be5e-41c7-99e7-7c09cbef895c",
+    "locationName": "Canyon Peak Stone Arch",
+    "rating": 5,
+    "comment": "Quiet and pristine. A must-visit near this region.",
+    "username": "ExploreEverywhere",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "38c06056-659e-4347-a351-e3ba0f331d24",
+    "locationName": "The Quiet Mossy Grotto",
+    "rating": 5,
+    "comment": "Quiet and pristine. A must-visit near this region.",
+    "username": "ExploreEverywhere",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "8cbe91cb-953f-4098-8bb9-e4a38668de65",
+    "locationName": "Seward Street Slides",
+    "rating": 5,
+    "comment": "Wear thick pants! The concrete is unforgiving if you don't have enough cardboard. Great view from the top too.",
+    "username": "SlideMaster",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "96b12412-a023-4355-a100-0c98fa3ac1d1",
+    "locationName": "Cayuga Park",
+    "rating": 5,
+    "comment": "Unbelievable amount of wood carvings hidden in the trees. It feels like a fantasy world right next to the noisy BART tracks.",
+    "username": "SFExplorer",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "fb59a3eb-9e57-41d3-88b1-f590ae4129e1",
+    "locationName": "Mt. Davidson Cross",
+    "rating": 5,
+    "comment": "The highest point in the city but so few people here. The eucalyptus forest is magical in the fog, and the cross is massive up close.",
+    "username": "MistCityWalker",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "a18eceb4-c10b-41dc-b435-b2b9b414de10",
+    "locationName": "The Wave Organ",
+    "rating": 4,
+    "comment": "On a jetty in San Francisco Bay, the Wave Organ is a unique acoustic sculpture designed to amplify the natural sounds of the bay's waves.",
+    "username": "Bastian Greshake Tzovaras",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "ff180f3e-6205-4983-acd1-0b636ca7674f",
+    "locationName": "Mt. Davidson Park",
+    "rating": 5,
+    "comment": "Mt Davidson is a scenic and quaint getaway from the buzzing streets of SF. Dramatic panoramic views in every direction. On a clear day, you can see far the hills of the faraway south bay and diablo area.",
+    "username": "Pancham Y.",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "815e2c73-ddf1-405c-beb0-975dda1d5eee",
+    "locationName": "Alviso Adobe Community Park",
+    "rating": 5,
+    "comment": "A true hidden gem in Pleasanton. The grounds are impeccably kept and it's a peaceful spot for a walk or history lesson.",
+    "username": "Sarah L.",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "9d0647f0-671b-43f7-a08c-22c67d9f49f8",
+    "locationName": "Alviso Adobe Community Park",
+    "rating": 5,
+    "comment": "Great photography spot. The old buildings and the butterfly garden provide excellent backdrops.",
+    "username": "Mark Thompson",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "089ae502-3739-4b95-9577-a163f27626f9",
+    "locationName": "Dublin Heritage Park & Museums",
+    "rating": 4,
+    "comment": "Surprisingly scenic and educational. The Murray Schoolhouse exhibit is very well done and explains the local history perfectly.",
+    "username": "Jessica R.",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "b070d457-3847-499a-978f-d6b28aa29c9a",
+    "locationName": "Dublin Heritage Park & Museums",
+    "rating": 5,
+    "comment": "Hidden in plain sight. Most people drive right past it, but it’s a lovely place for a picnic and a step back in time.",
+    "username": "David K.",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "8b93bcd2-c02e-4870-8747-0d35ad4dd334",
+    "locationName": "Augustin Bernal Park",
+    "rating": 5,
+    "comment": "The best views in the Tri-Valley, hands down. It's much quieter than the main Ridge entrance.",
+    "username": "HikingLover",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "754e5b75-e55d-4977-b1ae-90d801d2908c",
+    "locationName": "Augustin Bernal Park",
+    "rating": 5,
+    "comment": "A local secret. The trails are steep but the payoff at the top is incredible. Make sure you check the entry requirements first!",
+    "username": "Chris M.",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "837736f2-e61a-4b34-adb5-0a2b52470e93",
+    "locationName": "Forest Home Farms Historic Park",
+    "rating": 5,
+    "comment": "Charming and nostalgic. My kids loved seeing the old tractors and the big Victorian house is beautiful.",
+    "username": "Emily G.",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "123da148-f9e9-4ff3-8ad7-b014118265f9",
+    "locationName": "Forest Home Farms Historic Park",
+    "rating": 4,
+    "comment": "A wonderful piece of history. The docents are very knowledgeable and the atmosphere is very relaxing.",
+    "username": "Robert H.",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "ffc12389-4db6-4879-8893-e76182622638",
+    "locationName": "Origami Pegasus (Hero's Horse)",
+    "rating": 5,
+    "comment": "An incredible piece of art that looks like paper but is massive steel. Truly a hidden wonder in the middle of a business district.",
+    "username": "ArtEnthusiast92",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "a02d863a-4d43-4193-8219-24849f0d0cb0",
+    "locationName": "Origami Pegasus (Hero's Horse)",
+    "rating": 4,
+    "comment": "Hard to find if you aren't looking for it, but definitely worth the photo op. The detail of the 'folds' is impressive.",
+    "username": "RoadsideSeeker",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "ef2c2349-68da-483f-9287-df5d36e04aca",
+    "locationName": "Mandalay Canal Walk at Las Colinas",
+    "rating": 5,
+    "comment": "It feels like you’ve been transported to Europe. It was wonderous to see the Canal Walk lit up at night!",
+    "username": "TravelBug_TX",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "fda18b8a-9002-4a41-afe9-448c949b061b",
+    "locationName": "Mandalay Canal Walk at Las Colinas",
+    "rating": 4,
+    "comment": "A peaceful escape from the workday stress. Great for a romantic stroll or just a quiet place to think.",
+    "username": "LocalEats",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "89ea5428-bebc-4d80-a104-9a9b7c907d59",
+    "locationName": "Ruth Paine House Museum",
+    "rating": 5,
+    "comment": "Excellent tour. The clever projection vignettes throughout the home go far in bringing the riveting story to life.",
+    "username": "Paul",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "fc5ce189-e412-4022-b6c6-a2247e781bee",
+    "locationName": "Ruth Paine House Museum",
+    "rating": 5,
+    "comment": "A must-see for any Kennedy assassination enthusiast. TheTalking dioramas made it even more immersive.",
+    "username": "Emily",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "af299d3c-79f1-445c-8a96-90b8c73dded9",
+    "locationName": "MoMo Spot",
+    "rating": 5,
+    "comment": "Love the steamed momos and chow mein. Great halal option and truly authentic flavor!",
+    "username": "shanzida K.",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "9457e3cb-ff9a-4ec0-a905-e80f4512ad15",
+    "locationName": "MoMo Spot",
+    "rating": 5,
+    "comment": "Don't let the location fool you. This is some of the best Nepalese food in the country. The jhol momo is a must-try.",
+    "username": "GastroExplorer",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "b9a5bed5-ba3e-4c42-bc0e-f432ede38f59",
+    "locationName": "Mandalay Canal Walk",
+    "rating": 5,
+    "comment": "Amazing place to walk around with beautiful scenery and night vibes. Definitely a must see if you are in the area.",
+    "username": "Omar A.",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "d98e9a77-9951-4858-94af-0c8da30cb110",
+    "locationName": "Mandalay Canal Walk",
+    "rating": 5,
+    "comment": "So peaceful. Walking alongside the canal or riding the gondola makes you understand why this is a hidden gem.",
+    "username": "Lips W.",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "3c214d43-b105-4c76-a3cb-8fba4554076f",
+    "locationName": "Bird's Fort Trail Park",
+    "rating": 5,
+    "comment": "A perfect place to get away from the hustle and bustle of the city. This trail is a beautifully maintained paved pathway.",
+    "username": "Jim H.",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "19c2025b-0876-478b-a6e5-b1f0d6b73f99",
+    "locationName": "Bird's Fort Trail Park",
+    "rating": 5,
+    "comment": "This is a really nice park! There's an area where you can actually play in the fields so bring your dogs out.",
+    "username": "Melody T.",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "05990ced-035e-4064-9e0b-f68f46d58692",
+    "locationName": "California Crossing Park",
+    "rating": 5,
+    "comment": "Great spot for a quiet walk by the river and some history about the pioneers. Very untouched feel compared to other city parks.",
+    "username": "Outdoor Enthusiast",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "34a49aa6-d83c-4494-867b-2d3539bb89cd",
+    "locationName": "California Crossing Park",
+    "rating": 4,
+    "comment": "Good for biking and hiking. It feels like you're deep in the woods even though you're right near Las Colinas.",
+    "username": "Local Explorer",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "0f8c66e9-5000-4464-a966-e6027de5e47e",
+    "locationName": "Mustangs of Las Colinas Museum",
+    "rating": 5,
+    "comment": "Most people just see the horses and leave, but the museum inside the towers explains the incredible detail and history of how they were made. Well worth the visit.",
+    "username": "History Buff",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "aa2176af-8cc5-4653-8a57-4cafaf9364a6",
+    "locationName": "Mustangs of Las Colinas Museum",
+    "rating": 5,
+    "comment": "A quiet, informative spot. The staff are very knowledgeable and the story of the artist's journey to Kenya and Spain is captivating.",
+    "username": "Art Lover",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "bdff3336-c855-4ddb-bd5e-53bfddcadad7",
+    "locationName": "Elm Fork Nature Preserve",
+    "rating": 4,
+    "comment": "Nice little trail for something so nearby. Carrollton has done a very good job with the preserve. It's quiet and perfect for a quick morning hike.",
+    "username": "tzealous",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "90d1e401-3953-432c-b360-da765b2b9e7c",
+    "locationName": "Elm Fork Nature Preserve",
+    "rating": 5,
+    "comment": "I've hiked this twice. Great for a morning run or walking with kids who want to read the nameplates describing the local trees.",
+    "username": "Chandler",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "728226a8-b80b-41df-8af3-7481b0fababf",
+    "locationName": "Grapevine Springs Park",
+    "rating": 5,
+    "comment": "A little gem hidden away in Coppell. The stonework from the 30s is still beautiful and the history of Sam Houston camping here is fascinating.",
+    "username": "HistoryBuff99",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "5fd2747c-2fa9-468b-96f7-8a4f2406c7db",
+    "locationName": "Grapevine Springs Park",
+    "rating": 4,
+    "comment": "Beautifully maintained with lots of shade. It’s not a major trail system, but it's the best spot for a peaceful afternoon walk.",
+    "username": "NatureWalker",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "df4fcc74-16f9-4a18-bec9-46901b72bc29",
+    "locationName": "Biodiversity Education Center",
+    "rating": 5,
+    "comment": "Amazing facility that teaches you about local flora and fauna. The building itself is a work of art with its solar panels and rainwater collection.",
+    "username": "EcoExplorer",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "fd3539af-eadc-44c2-a390-26e27de174d8",
+    "locationName": "Biodiversity Education Center",
+    "rating": 5,
+    "comment": "A hidden educational treasure for families. The nature walks led by docents are top-notch and very informative for kids.",
+    "username": "LocalParent",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "60c8d1cc-65af-462a-b371-837b13023190",
+    "locationName": "Local Diner",
+    "rating": 5,
+    "comment": "Amazing experience. The owner is super nice and you must try their onion rings. It feels like stepping back into the 1950s.",
+    "username": "Cooler Asia",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "1d990257-761f-47d9-9f3b-365b46f6c207",
+    "locationName": "Local Diner",
+    "rating": 5,
+    "comment": "Loved the decor! Every town has a special place where people gather, and this is definitely Coppell's spot for great breakfast and company.",
+    "username": "Peggy C",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "a1081d18-935f-40f6-80b1-e19a1d544f98",
+    "locationName": "Audie Murphy/American Cotton Museum",
+    "rating": 5,
+    "comment": "An incredible tribute to Audie Murphy. The cotton history section was surprisingly fascinating, and the WWI trench exhibit is very immersive.",
+    "username": "HistoryBuff92",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "8ee5f7f5-2d38-4356-938a-7309946757c9",
+    "locationName": "Aviation Unmanned Vehicle Museum (AUVM)",
+    "rating": 5,
+    "comment": "A true hidden gem for aviation enthusiasts. The collection of vintage drones is one-of-a-kind, and the family that runs it is incredibly knowledgeable.",
+    "username": "TechTraveler",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "8dc90ea0-a93a-4594-89c9-af10b06e1468",
+    "locationName": "The Texan Theater",
+    "rating": 5,
+    "comment": "The most unique theater experience I've had. It feels like a private show in someone's very fancy living room. The food and the sound quality are top-notch.",
+    "username": "BoutiqueTraveler",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "c6b27e49-8ce1-40b6-9825-621f1f05bf46",
+    "locationName": "Mary of Puddin Hill",
+    "rating": 4,
+    "comment": "The banana split chocolates are amazing. It's a great place to stop for gifts and a taste of local history that you can't find elsewhere.",
+    "username": "SweetToothTX",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "f03bc8a6-cb19-4f1c-9f41-ba17597ff744",
+    "locationName": "In-Sync Exotics Wildlife Rescue and Educational Center",
+    "rating": 5,
+    "comment": "An incredible experience. You can tell the staff truly loves these animals. It's much more intimate and educational than a typical zoo.",
+    "username": "Sarah M.",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "82475f52-c999-4cc0-80a2-52c373bae9ba",
+    "locationName": "In-Sync Exotics Wildlife Rescue and Educational Center",
+    "rating": 5,
+    "comment": "Great place to spend an afternoon. The cats look happy and well-cared for. A hidden treasure in Wylie!",
+    "username": "David R.",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "963e7679-d481-4471-a461-29abd8042f77",
+    "locationName": "Olde City Park & The Burnett House",
+    "rating": 5,
+    "comment": "The Victorian house is beautiful and the park is so peaceful. It’s a great spot to take photos and learn a bit about local history.",
+    "username": "Jessica K.",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "003fcc7f-caf1-4b48-a2e6-c0991eec102d",
+    "locationName": "Olde City Park & The Burnett House",
+    "rating": 4,
+    "comment": "Quaint little park right off the main street. Very clean and well-maintained. A nice break from the suburban sprawl.",
+    "username": "Mark T.",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "6c3fa9a9-7907-4036-8fc7-6df5fe8e3aeb",
+    "locationName": "Landon Winery - Wylie",
+    "rating": 5,
+    "comment": "The atmosphere here is wonderful. They have a great selection of Texas wines and the staff is very knowledgeable.",
+    "username": "Linda G.",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "babae505-07ff-4475-9487-7802598f638a",
+    "locationName": "Landon Winery - Wylie",
+    "rating": 5,
+    "comment": "Perfect date night spot. The chocolate-dipped wine is a must-try. So glad we found this spot in downtown Wylie!",
+    "username": "Robert P.",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "65612933-ed70-4d1b-8352-40e5f2074085",
+    "locationName": "Murphy Central Park & Amphitheater",
+    "rating": 5,
+    "comment": "One of the best parks in the area. The trail system is great for running and the amphitheater is a beautiful spot for events.",
+    "username": "Chris L.",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "75e6943f-548f-4dd1-ba4b-16c5b12b28c0",
+    "locationName": "Murphy Central Park & Amphitheater",
+    "rating": 5,
+    "comment": "Beautiful park with plenty of space. The playground is excellent and the pond area is very serene.",
+    "username": "Amanda S.",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "8c13df87-5448-4472-b2e7-2c45cbe9a3bd",
+    "locationName": "Inlay Burmese Kitchen",
+    "rating": 5,
+    "comment": "Ridiculously delicious and healthy too! The flavors are unique and the service is incredibly warm.",
+    "username": "Tatiana H.",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "2b97c34c-ed46-410d-92c1-82634a2e4a5b",
+    "locationName": "Inlay Burmese Kitchen",
+    "rating": 5,
+    "comment": "Inlay Tea Leaf Salad is as refreshing as a spring breeze and incredibly flavorful. Kouswe is fantastic as well.",
+    "username": "Abhijit",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "c5bfa7e2-1ae1-4346-80e2-376c749dce36",
+    "locationName": "Old Town Wine House",
+    "rating": 5,
+    "comment": "A perfect neighborhood spot for a date night. Great variety of wines and the charcuterie board was top-tier.",
+    "username": "Sarah M.",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "6f1bc227-6188-447e-94ea-63b90a36a768",
+    "locationName": "Old Town Wine House",
+    "rating": 4,
+    "comment": "Friendly staff and a very helpful wine selection. The atmosphere is relaxed and classy.",
+    "username": "James T.",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "a56dc0b5-9611-462a-9cee-01c64a2c1d90",
+    "locationName": "LLELA Nature Preserve",
+    "rating": 5,
+    "comment": "LLELA is a beautiful, clean, and excellent park to hike and photograph. A true escape from the city feel.",
+    "username": "Amira",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "9c1e3f16-36b3-45d3-88b6-ff6802a26156",
+    "locationName": "LLELA Nature Preserve",
+    "rating": 5,
+    "comment": "Great place for kayaking on the Elm Fork. You feel like you're miles away from civilization.",
+    "username": "Paul G.",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "e837d5f1-58e6-4cc2-a424-7638506e5c74",
+    "locationName": "Ale Taco",
+    "rating": 5,
+    "comment": "The best tacos in the area and a craft beer list that puts most bars to shame. Don't let the strip mall location fool you.",
+    "username": "Daniel R.",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "86bb4107-f906-4685-956d-1481c5d1cc07",
+    "locationName": "Ale Taco",
+    "rating": 5,
+    "comment": "Authentic flavors and super friendly owners. The Al Pastor is a must-try!",
+    "username": "Elena S.",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "0387651a-c59d-43d8-999c-15426edaa20b",
+    "locationName": "The Tribute Shoreline Trail",
+    "rating": 5,
+    "comment": "A hidden treasure. Once you get past the golf course, you feel like you are in a national park. The views at the tip of the peninsula are incredible.",
+    "username": "TrailWalker99",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "a61ca6a2-9496-423c-93f3-caaa8307d790",
+    "locationName": "The Tribute Shoreline Trail",
+    "rating": 4,
+    "comment": "Very peaceful and clean. Just make sure to apply sunscreen as parts of the trail have limited shade.",
+    "username": "CyclistDan",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "3984a49a-7c15-49f5-84ba-f32057d253bc",
+    "locationName": "The Perc Coffeehouse",
+    "rating": 5,
+    "comment": "One of the coolest interiors I've seen in a coffee shop. The ambiance is perfect for relaxing or catching up with friends.",
+    "username": "CoffeeConnoisseur",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "d6288bc1-6fef-4028-a7b5-92c734e49c1c",
+    "locationName": "The Perc Coffeehouse",
+    "rating": 5,
+    "comment": "Love the vintage vibe and the local feel. It's a must-visit destination in downtown Lewisville.",
+    "username": "LocalEats",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "bba977f6-752d-4b6b-8ef7-97626e40c72e",
+    "locationName": "Sunset Point at Lakeside",
+    "rating": 5,
+    "comment": "Absolutely incredible view during sunset. It's safe, peaceful, and one of my favorite places to unwind in nature.",
+    "username": "SunSetSeeker",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "2319ee16-9a93-4cea-abd0-baf5f5bae4c7",
+    "locationName": "Sunset Point at Lakeside",
+    "rating": 5,
+    "comment": "A great place for a picnic and photos. The wooden deck is huge and offers sweeping views of the water.",
+    "username": "PicnicPro",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "8e666433-ae79-4b16-b46f-02c4309ddae0",
+    "locationName": "Rockledge Park",
+    "rating": 5,
+    "comment": "This park is such a hidden gem! The cliffs make the views stunning, and it's the perfect place for both adventure and relaxation.",
+    "username": "Traveler88",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "96c0ef00-9bbf-4be1-af00-cfffd66802f1",
+    "locationName": "Rockledge Park",
+    "rating": 5,
+    "comment": "The best spot in the DFW area to watch the sunset. The rocky shore makes you feel like you aren't in Texas anymore.",
+    "username": "SunsetChaser",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "cf5df719-2112-4b93-a934-bfc09d49f4df",
+    "locationName": "Parr Park Rock Art Trail",
+    "rating": 5,
+    "comment": "An inspirational walk you won't soon forget. Thousands of unique rocks with beautiful messages and characters.",
+    "username": "NatureArtLover",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "7baf761b-7f74-4c8e-a5ce-aab5246e9d18",
+    "locationName": "Parr Park Rock Art Trail",
+    "rating": 5,
+    "comment": "My kids spent hours looking at all the different designs. It is such a creative and peaceful use of a nature trail.",
+    "username": "FamilyFunDFW",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "1e5d06d0-7fa6-46c5-ae67-d89e3f5bd65f",
+    "locationName": "Grapevine Botanical Gardens at Heritage Park",
+    "rating": 5,
+    "comment": "A small parcel of peace and respite. I love finding hidden gems like this that are free and so well-maintained.",
+    "username": "GardenSeeker",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "b5e4b423-1f66-4bcb-aebc-60e2016f347a",
+    "locationName": "Grapevine Botanical Gardens at Heritage Park",
+    "rating": 4,
+    "comment": "Beautiful, quiet place for a stroll. The water features are very soothing and the plants are labeled for learning.",
+    "username": "LocalVibe",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "6e0a2f50-dbc7-4bd5-b327-be13d3af0324",
+    "locationName": "Nash Farm",
+    "rating": 5,
+    "comment": "Step back in time! It’s amazing to see a working farm preserved so well right in the middle of the city.",
+    "username": "HistoryBuff",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "f1d2ad34-affb-4988-a51a-bfeed4ce8686",
+    "locationName": "Nash Farm",
+    "rating": 5,
+    "comment": "Great for kids to see the sheep and chickens. The farmhouse tours are very informative about early Texas settlers.",
+    "username": "FarmerAtHeart",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "b507610d-bf2b-4743-bb9b-dec542e2058e",
+    "locationName": "Bob Jones Nature Center and Preserve",
+    "rating": 5,
+    "comment": "An absolute oasis. The trails are well-marked and the history of Bob Jones is inspiring. Great for bird watching.",
+    "username": "NatureWalker22",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "18bb5a24-413c-4abe-b7b0-f0b58af8d3ff",
+    "locationName": "Bob Jones Nature Center and Preserve",
+    "rating": 4,
+    "comment": "Hidden gem in Southlake. The Bluebird Trail is perfect for a quick walk with great views of the lake area.",
+    "username": "HikingTexas",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "e91d7932-3c1c-4f6e-9dec-4c2366612d20",
+    "locationName": "9/11 Flight Crew Memorial",
+    "rating": 5,
+    "comment": "Very moving tribute. The symbolism of the crew members facing the directions of the lost flights is powerful. Quiet and respectful.",
+    "username": "TravelerHist",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "3d1d0e4e-2116-4cd4-9778-c89e56118fcf",
+    "locationName": "9/11 Flight Crew Memorial",
+    "rating": 5,
+    "comment": "A must-visit. It's a small park but incredibly impactful, especially with the planes flying overhead.",
+    "username": "DFWLocal",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "4781885b-b846-4898-b2ba-cba74d9f1b7a",
+    "locationName": "Vetro Glassblowing Studio & Gallery",
+    "rating": 5,
+    "comment": "Watching the artists work is mesmerizing. We did the help-create event and it was the highlight of our trip!",
+    "username": "ArtLoverTX",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "cd1ff9df-2d81-4ece-87b7-c8217c31a2c1",
+    "locationName": "Vetro Glassblowing Studio & Gallery",
+    "rating": 5,
+    "comment": "Unique experience and the gallery has some stunning pieces. Highly recommend the seasonal ornament making.",
+    "username": "CreativeSoul",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "822d9a04-6411-4d23-8a65-a8a5eae8f3c6",
+    "locationName": "Stone Creek Park",
+    "rating": 5,
+    "comment": "Absolutely stunning rock formations. It doesn't even feel like you're in Flower Mound once you get down into the creek bed.",
+    "username": "NatureLover88",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "2bf9172a-4660-4356-a6f5-3b8cf7560068",
+    "locationName": "Stone Creek Park",
+    "rating": 4,
+    "comment": "Great spot for kids to explore the rocks, though it can get a bit muddy after the rain. A true hidden diamond in the suburbs.",
+    "username": "TX_Adventurer",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "f7787f91-7524-4050-84d3-b1ea580ee613",
+    "locationName": "The Flower Mound",
+    "rating": 5,
+    "comment": "A very spiritual and quiet place. The wildflowers in the spring are breathtaking, and the view of the sunset is one of the best in town.",
+    "username": "PrairieWanderer",
+    "timestamp": "Community Review"
+  },
+  {
+    "id": "8d7eb921-af57-4132-9d30-617c6b2e8745",
+    "locationName": "The Flower Mound",
+    "rating": 4,
+    "comment": "Simple, short walk but very peaceful. It's a miracle this hasn't been developed into houses.",
+    "username": "SuburbanHiker",
+    "timestamp": "Community Review"
+  }
+]

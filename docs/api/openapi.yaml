@@ -1,0 +1,544 @@
+openapi: 3.1.0
+info:
+  title: Where2Go MVP API
+  version: 0.1.0
+  description: Draft API contract for the Where2Go web-first MVP.
+servers:
+  - url: http://localhost:3000/api
+    description: Local development
+  - url: https://where2go.app/api
+    description: Production
+paths:
+  /plans/generate:
+    post:
+      summary: Generate a plan and backups
+      operationId: generatePlan
+      tags: [Plans]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PlanGenerateRequest"
+      responses:
+        "200":
+          description: Generated plan response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PlanGenerateResponse"
+        "400":
+          $ref: "#/components/responses/BadRequest"
+        "429":
+          $ref: "#/components/responses/RateLimited"
+  /plans/{planId}:
+    get:
+      summary: Fetch a saved plan
+      operationId: getPlan
+      tags: [Plans]
+      parameters:
+        - $ref: "#/components/parameters/PlanId"
+      responses:
+        "200":
+          description: Saved plan
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PlanGenerateResponse"
+        "404":
+          $ref: "#/components/responses/NotFound"
+  /plans/{planId}/feedback:
+    post:
+      summary: Capture plan feedback
+      operationId: createPlanFeedback
+      tags: [Feedback]
+      parameters:
+        - $ref: "#/components/parameters/PlanId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FeedbackRequest"
+      responses:
+        "200":
+          description: Feedback stored
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FeedbackResponse"
+  /plans/{planId}/share:
+    post:
+      summary: Create or refresh a share link
+      operationId: createPlanShare
+      tags: [Sharing]
+      parameters:
+        - $ref: "#/components/parameters/PlanId"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateShareRequest"
+      responses:
+        "200":
+          description: Share link
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreateShareResponse"
+  /share/{shareToken}:
+    get:
+      summary: Resolve a public share token
+      operationId: getSharedPlan
+      tags: [Sharing]
+      parameters:
+        - name: shareToken
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Public-safe shared plan
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PlanGenerateResponse"
+        "404":
+          $ref: "#/components/responses/NotFound"
+  /profiles/me:
+    get:
+      summary: Fetch current family profile
+      operationId: getMyProfile
+      tags: [Profiles]
+      responses:
+        "200":
+          description: Current family profile
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FamilyProfile"
+        "401":
+          $ref: "#/components/responses/Unauthorized"
+    put:
+      summary: Upsert current family profile
+      operationId: upsertMyProfile
+      tags: [Profiles]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FamilyProfileInput"
+      responses:
+        "200":
+          description: Updated family profile
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/FamilyProfile"
+  /ai/parse-request:
+    post:
+      summary: Parse natural language into constraints
+      operationId: parsePlanRequest
+      tags: [AI]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ParseRequestInput"
+      responses:
+        "200":
+          description: Parsed constraints
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ParseRequestOutput"
+  /provider-health:
+    get:
+      summary: Provider health status
+      operationId: getProviderHealth
+      tags: [Admin]
+      responses:
+        "200":
+          description: Provider health
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [providers]
+                properties:
+                  providers:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/ProviderHealth"
+components:
+  parameters:
+    PlanId:
+      name: planId
+      in: path
+      required: true
+      schema:
+        type: string
+  responses:
+    BadRequest:
+      description: Validation error
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorEnvelope"
+    Unauthorized:
+      description: Authentication required
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorEnvelope"
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorEnvelope"
+    RateLimited:
+      description: Rate limit exceeded
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ErrorEnvelope"
+  schemas:
+    ErrorEnvelope:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: object
+          required: [code, message, requestId]
+          properties:
+            code:
+              type: string
+            message:
+              type: string
+            requestId:
+              type: string
+            details:
+              type: object
+              additionalProperties: true
+    GeoPoint:
+      type: object
+      required: [lat, lng]
+      properties:
+        lat:
+          type: number
+        lng:
+          type: number
+        label:
+          type: string
+    Party:
+      type: object
+      required: [adults, kidsAges]
+      properties:
+        adults:
+          type: integer
+          minimum: 1
+        kidsAges:
+          type: array
+          items:
+            type: integer
+            minimum: 0
+            maximum: 17
+    MoneyRange:
+      type: object
+      required: [min, max, currency]
+      properties:
+        min:
+          type: number
+        max:
+          type: number
+        currency:
+          type: string
+          default: USD
+    PlanGenerateRequest:
+      type: object
+      required: [location, date, party]
+      properties:
+        queryText:
+          type: string
+        location:
+          $ref: "#/components/schemas/GeoPoint"
+        date:
+          type: string
+          format: date
+        startTime:
+          type: string
+          format: date-time
+        homeByTime:
+          type: string
+          format: date-time
+        party:
+          $ref: "#/components/schemas/Party"
+        budgetMax:
+          type: number
+        driveTimeMaxMinutes:
+          type: integer
+        indoorOutdoorPreference:
+          type: string
+          enum: [indoor, outdoor, either]
+        mealNeeded:
+          type: string
+          enum: [none, snack, lunch, dinner]
+        accessibilityNeeds:
+          type: array
+          items:
+            type: string
+        interests:
+          type: array
+          items:
+            type: string
+        avoid:
+          type: array
+          items:
+            type: string
+    PlanGenerateResponse:
+      type: object
+      required: [requestId, planId, generatedAt, status, bestPlan, alternatives]
+      properties:
+        requestId:
+          type: string
+        planId:
+          type: string
+        generatedAt:
+          type: string
+          format: date-time
+        status:
+          type: string
+          enum: [ready, partial, failed]
+        bestPlan:
+          $ref: "#/components/schemas/Plan"
+        alternatives:
+          type: array
+          items:
+            $ref: "#/components/schemas/AlternativePlan"
+        debug:
+          type: object
+          additionalProperties: true
+    Plan:
+      type: object
+      required: [title, planType, summary, estimatedTotalCost, travel, timeline, actions, whyThisPlan]
+      properties:
+        title:
+          type: string
+        planType:
+          type: string
+        summary:
+          type: string
+        estimatedTotalCost:
+          $ref: "#/components/schemas/MoneyRange"
+        travel:
+          type: object
+          required: [totalDriveMinutes, driveLimitSatisfied]
+          properties:
+            totalDriveMinutes:
+              type: integer
+            driveLimitSatisfied:
+              type: boolean
+        timeline:
+          type: array
+          items:
+            $ref: "#/components/schemas/TimelineItem"
+        stops:
+          type: array
+          items:
+            $ref: "#/components/schemas/Stop"
+        actions:
+          type: array
+          items:
+            $ref: "#/components/schemas/PlanAction"
+        whyThisPlan:
+          $ref: "#/components/schemas/PlanExplanation"
+    AlternativePlan:
+      allOf:
+        - $ref: "#/components/schemas/Plan"
+        - type: object
+          required: [kind]
+          properties:
+            kind:
+              type: string
+              enum: [cheaper, rain_or_low_effort]
+    TimelineItem:
+      type: object
+      required: [time, label, kind]
+      properties:
+        time:
+          type: string
+        label:
+          type: string
+        kind:
+          type: string
+          enum: [travel, activity, food, buffer, return]
+    Stop:
+      type: object
+      required: [title, type, location]
+      properties:
+        title:
+          type: string
+        type:
+          type: string
+          enum: [place, event, food, parking]
+        location:
+          $ref: "#/components/schemas/GeoPoint"
+        source:
+          type: string
+        sourceId:
+          type: string
+    PlanAction:
+      type: object
+      required: [type, label, url]
+      properties:
+        type:
+          type: string
+          enum: [directions, tickets, reservation, share, website]
+        label:
+          type: string
+        url:
+          type: string
+          format: uri
+    PlanExplanation:
+      type: object
+      required: [headline, reasons, caveats]
+      properties:
+        headline:
+          type: string
+        reasons:
+          type: array
+          items:
+            type: string
+        caveats:
+          type: array
+          items:
+            type: string
+    FeedbackRequest:
+      type: object
+      required: [action, target]
+      properties:
+        action:
+          type: string
+          enum: [accepted, rejected, saved, shared, attended]
+        target:
+          type: string
+          enum: [bestPlan, cheaperAlternative, rainBackup]
+        reason:
+          type: string
+        freeText:
+          type: string
+        attended:
+          type: boolean
+    FeedbackResponse:
+      type: object
+      required: [feedbackId, stored]
+      properties:
+        feedbackId:
+          type: string
+        stored:
+          type: boolean
+        updatedPreferenceSignals:
+          type: array
+          items:
+            type: string
+    CreateShareRequest:
+      type: object
+      properties:
+        expiresInDays:
+          type: integer
+          minimum: 1
+          maximum: 90
+        includeCost:
+          type: boolean
+        includeHomeLocation:
+          type: boolean
+    CreateShareResponse:
+      type: object
+      required: [shareToken, url, expiresAt]
+      properties:
+        shareToken:
+          type: string
+        url:
+          type: string
+          format: uri
+        expiresAt:
+          type: string
+          format: date-time
+    FamilyProfileInput:
+      type: object
+      required: [adults, kidsAges]
+      properties:
+        adults:
+          type: integer
+        kidsAges:
+          type: array
+          items:
+            type: integer
+        defaultBudget:
+          type: number
+        defaultDriveTimeMinutes:
+          type: integer
+        homeArea:
+          $ref: "#/components/schemas/GeoPoint"
+        preferences:
+          type: object
+          properties:
+            likes:
+              type: array
+              items:
+                type: string
+            avoids:
+              type: array
+              items:
+                type: string
+            mealPreferences:
+              type: array
+              items:
+                type: string
+    FamilyProfile:
+      allOf:
+        - $ref: "#/components/schemas/FamilyProfileInput"
+        - type: object
+          required: [profileId]
+          properties:
+            profileId:
+              type: string
+    ParseRequestInput:
+      type: object
+      required: [queryText]
+      properties:
+        queryText:
+          type: string
+        profileDefaults:
+          $ref: "#/components/schemas/FamilyProfileInput"
+    ParseRequestOutput:
+      type: object
+      required: [constraints, needsFollowUp]
+      properties:
+        constraints:
+          $ref: "#/components/schemas/PlanGenerateRequest"
+        needsFollowUp:
+          type: boolean
+        followUpQuestion:
+          type: string
+    ProviderHealth:
+      type: object
+      required: [name, status]
+      properties:
+        name:
+          type: string
+        status:
+          type: string
+          enum: [ok, degraded, down]
+        latencyP95Ms:
+          type: number
+        errorRate24h:
+          type: number
+        lastSuccessAt:
+          type: string
+          format: date-time

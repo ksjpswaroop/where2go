@@ -1,0 +1,48 @@
+{
+  "cli": {
+    "version": ">= 16.0.0",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "development": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_PLANNING_API_URL": "http://localhost:3000",
+        "EXPO_PUBLIC_SAFETY_API_URL": "http://localhost:5000",
+        "EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY": "",
+        "EXPO_PUBLIC_GOOGLE_MAPS_API_KEY": ""
+      }
+    },
+    "preview": {
+      "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_PLANNING_API_URL": "https://where2go.app",
+        "EXPO_PUBLIC_SAFETY_API_URL": "https://safety.where2go.app",
+        "EXPO_PUBLIC_PRIVACY_URL": "https://where2go.app/privacy",
+        "EXPO_PUBLIC_TERMS_URL": "https://where2go.app/terms"
+      }
+    },
+    "production": {
+      "autoIncrement": true,
+      "env": {
+        "EXPO_PUBLIC_PLANNING_API_URL": "https://where2go.app",
+        "EXPO_PUBLIC_SAFETY_API_URL": "https://safety.where2go.app",
+        "EXPO_PUBLIC_PRIVACY_URL": "https://where2go.app/privacy",
+        "EXPO_PUBLIC_TERMS_URL": "https://where2go.app/terms"
+      }
+    }
+  },
+  "submit": {
+    "production": {
+      "ios": {
+        "appleId": "",
+        "ascAppId": "",
+        "appleTeamId": ""
+      },
+      "android": {
+        "serviceAccountKeyPath": ""
+      }
+    }
+  }
+}

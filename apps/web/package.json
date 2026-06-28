@@ -1,0 +1,41 @@
+{
+  "name": "@where2go/web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@clerk/nextjs": "^6.36.5",
+    "@google/genai": "^2.4.0",
+    "@vis.gl/react-google-maps": "^1.8.3",
+    "@where2go/core": "workspace:*",
+    "@where2go/providers": "workspace:*",
+    "@where2go/safety-core": "workspace:*",
+    "@where2go/schemas": "workspace:*",
+    "lucide-react": "^0.561.0",
+    "motion": "^12.23.24",
+    "next": "16.2.9",
+    "postgres": "^3.4.7",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-markdown": "^10.1.0",
+    "stripe": "^18.5.0",
+    "zod": "^4.2.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/google.maps": "^3.65.2",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.9",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

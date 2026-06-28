@@ -1,0 +1,166 @@
+{
+  "generatedAt": "2026-06-27T18:44:49.979Z",
+  "baseUrl": "http://127.0.0.1:3000",
+  "results": [
+    {
+      "name": "GET /api/provider-health",
+      "status": "pass",
+      "durationMs": 10,
+      "details": {
+        "storage": "memory",
+        "providers": {
+          "google-places": "not_configured",
+          "ticketmaster": "not_configured",
+          "open-meteo-weather": "configured",
+          "ollama": "configured",
+          "openrouter": "not_configured",
+          "openai": "not_configured",
+          "postgres-storage": "not_configured"
+        }
+      }
+    },
+    {
+      "name": "GET /api/profiles/me default profile",
+      "status": "pass",
+      "durationMs": 64,
+      "details": {
+        "party": {
+          "adults": 2,
+          "kidsAges": [
+            8,
+            11
+          ]
+        },
+        "budgetDefault": 120,
+        "driveTimeDefaultMinutes": 30,
+        "interests": [
+          "parks",
+          "museums",
+          "family"
+        ],
+        "avoid": [
+          "crowded bars"
+        ]
+      }
+    },
+    {
+      "name": "PUT + GET /api/profiles/me persists in current runtime",
+      "status": "pass",
+      "durationMs": 8,
+      "details": {
+        "mode": "memory",
+        "budgetDefault": 110
+      }
+    },
+    {
+      "name": "POST /api/plans/generate honest no-provider outcome",
+      "status": "pass",
+      "durationMs": 716,
+      "details": {
+        "code": "NO_CANDIDATES",
+        "statuses": [
+          "open-meteo-weather:ok",
+          "ticketmaster:not_configured",
+          "google-places-activities:not_configured",
+          "google-places-food:not_configured"
+        ]
+      }
+    },
+    {
+      "name": "POST /api/ai/parse-request reports AI provider state",
+      "status": "pass",
+      "durationMs": 94,
+      "details": {
+        "parsed": false,
+        "providerStatus": [
+          {
+            "name": "ollama",
+            "status": "failed",
+            "message": "404 Not Found: {\"error\":{\"message\":\"model 'llama3.1' not found\",\"type\":\"not_found_error\",\"param\":null,\"code\":null}}\n",
+            "latencyMs": 20
+          },
+          {
+            "name": "openrouter",
+            "status": "not_configured",
+            "message": "Set OPENROUTER_API_KEY and OPENROUTER_MODEL."
+          },
+          {
+            "name": "openai",
+            "status": "not_configured",
+            "message": "Set OPENAI_API_KEY and OPENAI_MODEL."
+          }
+        ]
+      }
+    },
+    {
+      "name": "GET missing plan returns 404",
+      "status": "pass",
+      "durationMs": 431,
+      "details": {
+        "code": "PLAN_NOT_FOUND",
+        "message": "Plan was not found."
+      }
+    },
+    {
+      "name": "GET missing share returns 404",
+      "status": "pass",
+      "durationMs": 426,
+      "details": {
+        "code": "SHARE_NOT_FOUND",
+        "message": "Shared plan was not found or has expired."
+      }
+    },
+    {
+      "name": "POST feedback for missing plan currently accepted",
+      "status": "pass",
+      "durationMs": 460,
+      "details": {
+        "acceptedNonexistentPlan": true,
+        "body": {
+          "feedbackId": "fb_8e8f32605ffa44b4a4",
+          "stored": true,
+          "updatedPreferenceSignals": []
+        }
+      }
+    },
+    {
+      "name": "Desktop browser planning flow",
+      "status": "pass",
+      "durationMs": 1243,
+      "details": {
+        "screenshotPath": "/Users/swaroop/Documents/where2go/outputs/local-e2e-20260627/desktop-plan-error-state.png",
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 424 (Failed Dependency)"
+        ],
+        "pageErrors": [],
+        "buttonInitiallyDisabled": true,
+        "buttonEnabled": true
+      }
+    },
+    {
+      "name": "Mobile browser planning flow",
+      "status": "pass",
+      "durationMs": 1118,
+      "details": {
+        "screenshotPath": "/Users/swaroop/Documents/where2go/outputs/local-e2e-20260627/mobile-plan-error-state.png",
+        "consoleErrors": [
+          "Failed to load resource: the server responded with a status of 424 (Failed Dependency)"
+        ],
+        "pageErrors": [],
+        "buttonInitiallyDisabled": true,
+        "buttonEnabled": true
+      }
+    }
+  ],
+  "findings": [
+    {
+      "severity": "bug",
+      "title": "Feedback endpoint accepts nonexistent plan IDs",
+      "detail": "POST /api/plans/{planId}/feedback should verify the plan exists before storing feedback."
+    }
+  ],
+  "screenshots": [
+    "/Users/swaroop/Documents/where2go/outputs/local-e2e-20260627/desktop-plan-error-state.png",
+    "/Users/swaroop/Documents/where2go/outputs/local-e2e-20260627/mobile-plan-error-state.png"
+  ]
+}

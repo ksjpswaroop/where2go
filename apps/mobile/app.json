@@ -1,0 +1,74 @@
+{
+  "expo": {
+    "name": "Where2Go",
+    "slug": "where2go",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "where2go",
+    "userInterfaceStyle": "dark",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/images/icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0B1120"
+    },
+    "plugins": [
+      [
+        "expo-router",
+        {
+          "origin": "https://where2go.app"
+        }
+      ],
+      "expo-font",
+      "expo-web-browser",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Where2Go uses your location for safety check-ins and trip planning."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "color": "#0B1120"
+        }
+      ]
+    ],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.where2go.app",
+      "config": {
+        "googleMapsApiKey": "${EXPO_PUBLIC_GOOGLE_MAPS_API_KEY}"
+      },
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Where2Go uses your location to share your whereabouts with emergency contacts, plan outings, and drop check-in pins.",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Where2Go uses your location during safety timers and alerts in Solo Travel mode."
+      }
+    },
+    "android": {
+      "package": "com.where2go.app",
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION"
+      ],
+      "config": {
+        "googleMaps": {
+          "apiKey": "${EXPO_PUBLIC_GOOGLE_MAPS_API_KEY}"
+        }
+      }
+    },
+    "web": {
+      "favicon": "./assets/images/icon.png"
+    },
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "where2go-mobile"
+      }
+    }
+  }
+}
